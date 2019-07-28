@@ -1,0 +1,4 @@
+docker-compose
+ipython
+pdbpp
+pre-commit
