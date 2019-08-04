@@ -2,6 +2,27 @@ REQUIREMENTS = $(wildcard requirements/*.in)
 LOCKFILE = requirements/lock.txt
 
 
+.DEFAULT: help
+help:
+	@echo "make reqs"
+	@echo "make lock"
+	@echo "    upgrade, lock, then install the Python dependencies in requirements/*.in"
+	@echo "make tests"
+	@echo "make test"
+	@echo "    run all tests"
+	@echo "make rtests"
+	@echo "make rtest"
+	@echo "    recreate Tox environment without running the tests"
+	@echo "make debug"
+	@echo "    run all tests, but drop to pdb interpreter for an error or set_trace() all"
+	@echo "make rdebug"
+	@echo "    recreate Tox environment for debug mode without running the tests"
+	@echo "make clean-dist"
+	@echo "    clean distribution related files"
+	@echo "make clean-py"
+	@echo "    clean untracked Python files like *.pyo"
+
+
 .PHONY: reqs
 reqs: lock
 
