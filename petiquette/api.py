@@ -56,6 +56,8 @@ routes = {
 }
 
 for path, resource_by_method in routes.items():
-    for method, resource in resource_by_method.items():
+    for accept_methods, resource in resource_by_method.items():
+        if not isinstance(accept_methods, (tuple, list)):
+            accept_methods = (accept_methods,)
         router.cli()(resource)
-        router.http(method, resource)
+        router.http(path, accept=accept_methods)(resource)
