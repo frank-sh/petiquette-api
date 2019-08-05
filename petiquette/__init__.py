@@ -1,4 +1,10 @@
-__all__ = ['api']
+import hug
+
+from .api import router
 
 
-from . import api
+@hug.extend_api()
+def with_nested_apis():
+    return [
+        router.api,
+    ]
