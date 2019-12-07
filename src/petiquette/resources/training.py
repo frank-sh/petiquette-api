@@ -2,6 +2,8 @@ from marshmallow.fields import (
     UUID,
 )
 
+from petiquette.directives import dbsession  # TODO
+
 
 def commands():
     return []
@@ -11,7 +13,7 @@ def command(id: UUID()):
     return {}
 
 
-def sessions():
+def sessions(dbsession: dbsession):
     return []
 
 
